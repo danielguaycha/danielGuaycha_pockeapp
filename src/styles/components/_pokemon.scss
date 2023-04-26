@@ -1,0 +1,74 @@
+$card-height: 110px;
+$card-image-border: -4.3rem;
+$color-id: #aaa7a7;
+
+.pokemon-list {
+  display: grid;
+  grid-template: auto / 1fr;
+  grid-gap: 16px;
+  margin-top: 1rem;
+  @include tablet {
+    grid-template: auto / repeat(2, 1fr);
+  }
+  @include desktop {
+    grid-template: auto / repeat(3, 1fr);
+  }
+}
+
+.pokemon-container {
+  position: relative;
+  display: flex;
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  overflow: hidden;
+  justify-content: space-between;
+  height: $card-height;
+  cursor: pointer;
+
+  .pokemon-header {
+    align-self: center;
+
+    .name {
+      font-weight: 600;
+      font-size: 1.3rem;
+    }
+
+    .label {
+      font-size: .7rem;
+      background: #f2f2f2;
+      text-align: center;
+      padding: .1rem .5rem;
+      margin-right: 4px;
+      border-radius: 10px;
+    }
+  }
+
+  .pokemon-background {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    height: 100%;
+    width: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .pokemon-id {
+    position: absolute;
+    top: 4px;
+    right: 12px;
+    color: $color-id;
+    font-size: .875rem;
+  }
+
+  .pokemon-xp {
+    position: absolute;
+    height: 4px;
+    bottom: 0;
+    background: #404040;
+    left: 0;
+    z-index: 1;
+  }
+}

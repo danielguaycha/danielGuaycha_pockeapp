@@ -1,0 +1,19 @@
+<div (click)="onSelectPokemon()" *ngIf="pokemon" class="pokemon-container">
+  <div class="pokemon-header">
+    <div [ngStyle]="{color: color}" class="name">
+      {{ name | titlecase }}
+    </div>
+    <div>
+      <span *ngFor="let type of pokemon.types" class="label">{{ type.type.name | titlecase }}</span>
+    </div>
+  </div>
+  <div class="pokemon-id font-con">#{{ pokemon.id }}</div>
+  <div [ngStyle]="{backgroundImage: 'url('+pokemon.sprites.other.dream_world.front_default+')'}"
+       class="pokemon-background"></div>
+  <div [ngStyle]="{
+          background: color,
+          width: ((pokemon.base_experience * 100) / 500) + '%'
+        }"
+       class="pokemon-xp"></div>
+</div>
+<ngx-skeleton-loader *ngIf="loader" [theme]="{height: '110px'}"></ngx-skeleton-loader>

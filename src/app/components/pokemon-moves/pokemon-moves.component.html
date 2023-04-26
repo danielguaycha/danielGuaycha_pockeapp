@@ -1,0 +1,10 @@
+<div *ngIf="moves" class="card moves">
+  <div class="card-title">Movimientos</div>
+  <div class="card-body">
+    <div class="pokemon-move">
+      <ng-container *ngFor="let m of moves">
+        <div class="pokemon-move-item">{{ m.move.name | titlecase }}</div>
+      </ng-container>
+    </div>
+  </div>
+</div>

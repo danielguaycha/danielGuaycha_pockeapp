@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;500;700;900&display=swap');
+@import "core/variables";
+@import "core/mixings";
+@import "core/reset";
+@import "core/display";
+@import "core/forms";
+@import "core/btn";
+@import "components/pokemon";
+@import "components/pokemon-view";
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.42857143;
+  background-color: #ebecf0;
+  margin: 0;
+  padding: 0 0 2rem 0;
+}
+
+.header {
+  background: white;
+  height: 55px;
+
+  .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    form {
+      margin-left: 1rem;
+      flex: 1;
+    }
+
+    .logo {
+      text-decoration: none;
+      color: black;
+      display: flex;
+      font-weight: bold;
+      line-height: 30px;
+      font-family: $font-family-condensed;
+      cursor: pointer;
+
+      img {
+        height: 30px;
+        margin-right: .5rem;
+      }
+    }
+  }
+}

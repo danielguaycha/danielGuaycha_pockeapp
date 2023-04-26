@@ -1,0 +1,18 @@
+.btn {
+  border: none;
+  background: #fafafc;
+  padding: .5rem 1rem;
+  border-radius: 7px;
+  text-align: center;
+  text-decoration: none;
+
+  &.primary {
+    background: $color-primary;
+    color: white;
+
+    &:hover, &:focus {
+      text-decoration: none;
+      background: darken($color-primary, 10);
+    }
+  }
+}

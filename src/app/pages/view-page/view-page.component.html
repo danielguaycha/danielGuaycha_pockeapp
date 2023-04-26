@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+<ng-container *ngIf="pokeData; else notFound">
+  <div [style]="{background: pokeData._color}" class="pokemon-view-bg">
+    <div class="container">
+      <div class="pokemon-view-name">{{ pokeData.name | titlecase }}</div>
+      <div class="pokemon-view-types">
+        <ng-container *ngFor="let type of pokeData.types">
+          <span>
+            {{ type.type.name | titlecase }}
+          </span>
+        </ng-container>
+      </div>
+    </div>
+    <div class="pokemon-view-img">
+      <img [src]="pokeData.sprites.other.dream_world.front_default" alt="">
+    </div>
+  </div>
+  <div class="container mt-5">
+    <div class="card">
+      <div><b>Especie: </b>{{pokeData.species.name | titlecase}}</div>
+      <div><b>Peso: </b>{{pokeData.weight}}</div>
+      <div><b>Altura: </b>{{pokeData.height}}</div>
+      <div><b>ID: </b>#{{ pokeData.weight}}</div>
+      <div><b>XP: </b>{{ pokeData.base_experience}}</div>
+    </div>
+    <app-pokemon-sprites [sprites]="pokeData.sprites"></app-pokemon-sprites>
+    <app-pokemon-moves [moves]="pokeData.moves"></app-pokemon-moves>
+  </div>
+</ng-container>
+<ng-template #notFound>
+  <app-not-found></app-not-found>
+</ng-template>
+
+

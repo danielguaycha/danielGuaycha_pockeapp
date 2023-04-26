@@ -1,0 +1,74 @@
+$default-color: #9b9b9b;
+.pokemon-view-bg {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 1rem;
+  background: $default-color;
+
+  .pokemon-view-img {
+    align-self: center;
+    position: absolute;
+    top: 70px;
+    width: 150px;
+    height: 150px;
+    padding: 1rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      height: 130px;
+    }
+  }
+
+  .pokemon-view-name {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px rgba(black, .2);
+  }
+
+  .pokemon-view-types {
+    display: flex;
+
+    span {
+      background: rgba(white, .6);
+      margin-right: .5rem;
+      padding: 0 1rem;
+      border-radius: 10px;
+      font-weight: 500;
+      color: rgba(black, .5);
+    }
+  }
+}
+
+.pokemon-view-about {
+  display: flex;
+  margin-top: 3rem;
+}
+
+.card {
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+
+  .card-title {
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: .5rem;
+  }
+}
+
+.pokemon-move {
+  display: grid;
+  padding: .4rem;
+  grid-template-columns: 1fr 1fr;
+  @include desktop {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+

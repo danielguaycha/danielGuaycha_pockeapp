@@ -1,0 +1,79 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ],
+        "no-console": "error",
+        "no-restricted-syntax": [
+          "error",
+          {
+            "selector": "CallExpression[callee.object.name='console'][callee.property.name!=/^(log|warn|error|info|trace)$/]",
+            "message": "Unexpected property on console object was called"
+          }
+        ],
+        "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+        "semi": "error",
+        "comma-spacing": "error",
+        "space-in-parens": "error",
+        "no-alert": "error",
+        "one-var-declaration-per-line": "error",
+        "arrow-spacing": "error",
+        "computed-property-spacing": "error",
+        "key-spacing": "error",
+        "max-len": ["error", 240],
+        "no-mixed-spaces-and-tabs": "error",
+        "no-multi-spaces": "error",
+        "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }],
+        "max-params": ["error", 7],
+        "no-empty-function": ["error", { "allow": ["constructors"] }],
+        "no-return-await": "error",
+        "no-multi-assign": "error",
+        "no-redeclare": "warn",
+        "no-unused-expressions": "error",
+        "no-useless-return": "error",
+        "keyword-spacing": ["error", { "before": true }]
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {}
+    }
+  ]
+}

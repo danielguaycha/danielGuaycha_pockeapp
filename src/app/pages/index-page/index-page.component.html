@@ -1,0 +1,44 @@
+<app-navbar>
+  <form (ngSubmit)="onSearchPokemon()" action="search" method="get">
+    <input (input)="onRefreshPokemonList()"
+           [(ngModel)]="searchText"
+           [readonly]="loader"
+           autocomplete="off"
+           class="form-input"
+           name="searchText"
+           placeholder="¿Qué Pokemon buscas?"
+           required
+           type="search">
+  </form>
+</app-navbar>
+<ng-container *ngIf="pokemonData.results.length >= 1 && !loader">
+  <!-- Pokemon List -->
+  <div class="container pokemon-list">
+    <ng-container *ngFor="let p of pokemonData.results">
+      <app-pokemon-card (selectPokemon)="onViewPokemon($event)" [name]="p.name"></app-pokemon-card>
+    </ng-container>
+  </div>
+  <!-- Paginator -->
+  <div class="container mt-2" *ngIf="pokemonData.results.length > 1">
+    <div class="text-center mb-1">
+      <span>{{ itemPerPage * (page + 1) }}/{{ pokemonTotal }}</span>
+    </div>
+    <div class="text-center">
+      <button (click)="onPrevResults()"
+              *ngIf="pokemonData.previous"
+              [disabled]="loader"
+              class="btn primary mr-1">Anterior
+      </button>
+      <button (click)="onNextResults()"
+              *ngIf="pokemonData.next"
+              [disabled]="loader"
+              class="btn primary">Siguiente
+      </button>
+    </div>
+  </div>
+</ng-container>
+
+
+<div *ngIf="loader" class="container">
+  <ngx-skeleton-loader [count]="itemPerPage" [theme]="{height: '110px'}" class="pokemon-list"></ngx-skeleton-loader>
+</div>
